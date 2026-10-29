@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Pacific Sheep LLC — bookkeeping, month-end close, financial reporting, QuickBooks cleanup, consulting, and exit-ready financials for small businesses of all kinds. Bookkeeping from $300/month, consulting at $75/hour, flat-fee project options available." />
+    <link rel="icon" href="data:," />
+    <title>Pacific Sheep LLC — Bookkeeping & Accounting Consulting for Small Businesses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root{
+        --bg:#FAF8F3;
+        --bg-alt:#F1ECE2;
+        --surface:#FFFFFF;
+        --surface-soft:#F6F2EA;
+        --ink:#16242E;
+        --ink-2:#334552;
+        --muted:#647581;
+        --line:#E0D9C9;
+        --line-dark:#CFC5AC;
+        --navy:#17384A;
+        --navy-deep:#102A39;
+        --navy-ink:#EDF2F0;
+        --accent:#A96F2E;
+        --accent-strong:#8C5A21;
+        --accent-soft:#F3E6CE;
+        --green:#2F6B4F;
+        --shadow:0 18px 40px rgba(22,36,46,.10);
+        --radius:18px;
+        --radius-sm:10px;
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --bg:#0E1A22;
+          --bg-alt:#12242F;
+          --surface:#162A36;
+          --surface-soft:#1A303E;
+          --ink:#EAF1F2;
+          --ink-2:#C7D4D9;
+          --muted:#9DB0B9;
+          --line:#29414E;
+          --line-dark:#3A5766;
+          --navy:#0B1F2B;
+          --navy-deep:#08161F;
+          --accent:#D9A55E;
+          --accent-strong:#E7BC7C;
+          --accent-soft:#2A2318;
+          --shadow:0 18px 40px rgba(0,0,0,.35);
+        }
+      }
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      @media (prefers-reduced-motion: reduce){
+        html{scroll-behavior:auto}
+        *{transition:none !important; animation:none !important}
+      }
+      body{
+        margin:0;
+        background:var(--bg);
+        color:var(--ink);
+        font-family:"Public Sans", system-ui, -apple-system, Segoe UI, sans-serif;
+        font-size:16.5px;
+        line-height:1.65;
+        -webkit-font-smoothing:antialiased;
+      }
+      a{color:var(--accent-strong)}
+      a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{
+        outline:3px solid var(--accent); outline-offset:2px;
+      }
+      .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+      h1,h2,h3{font-family:"Source Serif 4", Georgia, serif;line-height:1.12;color:var(--ink);margin:0}
+      h2{font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:600;letter-spacing:-.01em}
+      h3{font-size:1.28rem;font-weight:600}
+      p{margin:0}
+      .section{padding:84px 0}
+      .section-tight{padding:56px 0}
+      .section-head{max-width:720px;margin-bottom:40px}
+      .section-head p{margin-top:14px;color:var(--muted);font-size:1.06rem}
+      .label{
+        display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+        color:var(--accent-strong);margin-bottom:14px;
+      }
+      .label::before{content:"";display:inline-block;width:26px;height:2px;background:var(--accent);vertical-align:middle;margin-right:10px}
+
+      /* ---------- Header ---------- */
+      header{
+        position:sticky;top:0;z-index:50;
+        background:color-mix(in srgb, var(--bg) 92%, transparent);
+        backdrop-filter:blur(10px);
+        border-bottom:1px solid var(--line);
+      }
+      .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0}
+      .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+      .brand-mark{
+        width:42px;height:42px;flex:0 0 42px;border-radius:50%;
+        background:var(--navy);color:#F3E6CE;display:grid;place-items:center;
+        font-family:"Source Serif 4", Georgia, serif;font-weight:700;font-size:1.25rem;
+        border:2px solid var(--accent);
+      }
+      .brand-name{font-family:"Source Serif 4", Georgia, serif;font-weight:700;font-size:1.22rem;line-height:1.1}
+      .brand-sub{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:600}
+      .nav-links{display:flex;align-items:center;gap:28px;list-style:none;margin:0;padding:0}
+      .nav-links a{color:var(--ink-2);text-decoration:none;font-weight:600;font-size:.95rem}
+      .nav-links a:hover{color:var(--accent-strong)}
+      .btn{
+        display:inline-flex;align-items:center;gap:9px;
+        background:var(--navy);color:#fff !important;
+        padding:11px 20px;border-radius:999px;text-decoration:none;font-weight:700;font-size:.95rem;
+        border:1px solid var(--navy);
+      }
+      .btn:hover{background:var(--navy-deep)}
+      .btn-accent{background:var(--accent);border-color:var(--accent);color:#fff !important}
+      .btn-accent:hover{background:var(--accent-strong)}
+      .btn-ghost{background:transparent;color:var(--ink) !important;border:1px solid var(--line-dark)}
+      .btn-ghost:hover{border-color:var(--accent);color:var(--accent-strong) !important}
+      @media (max-width:820px){ .nav-links li:not(:last-child){display:none} }
+
+      /* ---------- Hero ---------- */
+      .hero{padding:72px 0 64px;border-bottom:1px solid var(--line);
+        background:
+          radial-gradient(720px 340px at 92% -60px, var(--accent-soft), transparent 65%),
+          var(--bg);
+      }
+      .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+      @media (max-width:920px){ .hero-grid{grid-template-columns:1fr;gap:40px} }
+      .hero h1{font-size:clamp(2.35rem,5.2vw,3.65rem);font-weight:600;letter-spacing:-.015em}
+      .hero h1 em{font-style:italic;color:var(--accent-strong)}
+      .hero-lede{margin-top:22px;font-size:1.14rem;color:var(--ink-2);max-width:34rem}
+      .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+      .hero-ctas .btn{padding:14px 26px;font-size:1rem}
+      .hero-note{margin-top:18px;font-size:.92rem;color:var(--muted)}
+      .hero-note strong{color:var(--ink-2)}
+
+      /* ledger card */
+      .ledger{
+        background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+        box-shadow:var(--shadow);overflow:hidden;
+      }
+      .ledger-top{
+        background:var(--navy);color:var(--navy-ink);padding:20px 24px;
+        display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+      }
+      .ledger-top .t{font-family:"Source Serif 4",Georgia,serif;font-size:1.08rem;font-weight:600}
+      .ledger-top .s{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;opacity:.75;font-weight:600}
+      .ledger-body{padding:10px 24px 20px}
+      .ledger-row{
+        display:flex;justify-content:space-between;align-items:center;gap:16px;
+        padding:13px 0;border-bottom:1px dashed var(--line);
+      }
+      .ledger-row:last-child{border-bottom:none}
+      .ledger-row .k{font-weight:600;color:var(--ink-2);font-size:.97rem}
+      .ledger-row .k small{display:block;font-weight:400;color:var(--muted);font-size:.84rem}
+      .pill{
+        font-size:.78rem;font-weight:700;padding:4px 11px;border-radius:999px;white-space:nowrap;
+        background:color-mix(in srgb, var(--green) 14%, transparent);color:var(--green);
+      }
+      @media (prefers-color-scheme: dark){ .pill{color:#8FD0AC} }
+      .pill-amber{background:var(--accent-soft);color:var(--accent-strong)}
+      .ledger-foot{
+        padding:16px 24px;background:var(--surface-soft);border-top:1px solid var(--line);
+        font-size:.9rem;color:var(--muted);
+      }
+      .ledger-foot strong{color:var(--ink)}
+
+      /* ---------- Trust strip ---------- */
+      .strip{border-bottom:1px solid var(--line);background:var(--bg-alt)}
+      .strip-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:26px 0}
+      @media (max-width:820px){ .strip-inner{grid-template-columns:1fr 1fr} }
+      .strip-item{padding:6px 14px}
+      .strip-item .v{font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:1.12rem;color:var(--ink)}
+      .strip-item .d{font-size:.88rem;color:var(--muted);margin-top:2px}
+
+      /* ---------- Services ---------- */
+      .svc-list{border-top:1px solid var(--line)}
+      .svc{
+        display:grid;grid-template-columns:64px 1fr 1.15fr;gap:24px;
+        padding:30px 6px;border-bottom:1px solid var(--line);align-items:start;
+      }
+      @media (max-width:820px){ .svc{grid-template-columns:44px 1fr} .svc ul{grid-column:2} }
+      .svc-num{
+        font-family:"Source Serif 4",Georgia,serif;font-size:1.5rem;font-weight:700;color:var(--accent);
+        line-height:1;padding-top:4px;
+      }
+      .svc h3{margin-bottom:8px}
+      .svc .desc{color:var(--muted);font-size:.99rem;max-width:26rem}
+      .svc ul{margin:2px 0 0;padding:0;list-style:none}
+      .svc li{padding:5px 0 5px 24px;position:relative;color:var(--ink-2);font-size:.97rem}
+      .svc li::before{
+        content:"";position:absolute;left:2px;top:.72em;width:9px;height:9px;border-radius:2px;
+        background:var(--accent);opacity:.85;
+      }
+      .svc .rate{
+        display:inline-block;margin-top:12px;background:var(--accent-soft);color:var(--accent-strong);
+        font-weight:700;font-size:.9rem;padding:6px 13px;border-radius:999px;
+      }
+
+      /* ---------- Industries ---------- */
+      .dark-band{background:var(--navy);color:var(--navy-ink)}
+      .dark-band h2{color:#fff}
+      .dark-band .section-head p{color:#B9CBD2}
+      .dark-band .label{color:#E7BC7C}
+      .ind-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+      @media (max-width:820px){ .ind-grid{grid-template-columns:1fr} }
+      .ind{
+        background:var(--navy-deep);border:1px solid rgba(255,255,255,.13);border-radius:var(--radius);
+        padding:32px 30px;
+      }
+      .ind h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
+      .ind p{color:#C3D2D8;font-size:.99rem}
+      .ind-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+      .ind-tags span{
+        font-size:.82rem;font-weight:600;padding:5px 12px;border-radius:999px;
+        border:1px solid rgba(255,255,255,.28);color:#EAF1F2;
+      }
+      .ind-scale{margin-top:38px;border-top:1px solid rgba(255,255,255,.16);padding-top:26px;
+        font-family:"Source Serif 4",Georgia,serif;font-size:1.18rem;font-style:italic;color:#EDE6D6;max-width:56rem}
+
+      /* ---------- Process ---------- */
+      .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+      @media (max-width:820px){ .steps{grid-template-columns:1fr} }
+      .step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px}
+      .step .n{
+        width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+        background:var(--navy);color:#F3E6CE;font-family:"Source Serif 4",Georgia,serif;font-weight:700;margin-bottom:18px;
+      }
+      .step h3{font-size:1.18rem;margin-bottom:8px}
+      .step p{color:var(--muted);font-size:.97rem}
+
+      /* ---------- Pricing ---------- */
+      .price-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:24px}
+      @media (max-width:960px){ .price-tiers{grid-template-columns:1fr} }
+      .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+      @media (max-width:820px){ .price-grid{grid-template-columns:1fr} }
+      .price{
+        background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:36px 34px;
+        display:flex;flex-direction:column;
+      }
+      .price.featured{border:2px solid var(--accent);box-shadow:var(--shadow)}
+      .price .kind{font-size:.8rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--accent-strong)}
+      .price .badge{
+        align-self:flex-start;margin-bottom:12px;font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+        background:var(--accent);color:#fff;padding:5px 11px;border-radius:999px;
+      }
+      .price .amount{font-family:"Source Serif 4",Georgia,serif;font-size:3rem;font-weight:700;line-height:1.05;margin:14px 0 4px}
+      .price .amount-range{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(1.85rem,2.6vw,2.25rem);font-weight:700;line-height:1.12;margin:12px 0 4px;letter-spacing:-.01em}
+      .price .amount-range small{font-size:1rem;font-weight:600;color:var(--muted);font-family:"Public Sans",sans-serif;letter-spacing:0}
+      .price .amount small{font-size:1.05rem;font-weight:600;color:var(--muted);font-family:"Public Sans",sans-serif}
+      .price .amount-text{font-family:"Source Serif 4",Georgia,serif;font-size:1.65rem;font-weight:700;line-height:1.25;margin:14px 0 4px}
+      .price p{color:var(--muted);font-size:.98rem;margin-top:10px}
+      .price ul{list-style:none;margin:20px 0 0;padding:18px 0 0;border-top:1px solid var(--line)}
+      .price li{padding:5px 0 5px 24px;position:relative;color:var(--ink-2);font-size:.96rem}
+      .price li::before{content:"";position:absolute;left:2px;top:.72em;width:9px;height:9px;border-radius:2px;background:var(--accent)}
+      .price-note{margin-top:22px;color:var(--muted);font-size:.93rem;text-align:center;max-width:52rem;margin-left:auto;margin-right:auto}
+      .price-note strong{color:var(--ink-2)}
+
+      /* ---------- About ---------- */
+      .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:52px;align-items:start}
+      @media (max-width:820px){ .about-grid{grid-template-columns:1fr;gap:30px} }
+      .about-card{
+        background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px 30px;box-shadow:var(--shadow);
+      }
+      .about-card .mono{
+        width:64px;height:64px;border-radius:50%;background:var(--navy);color:#F3E6CE;
+        display:grid;place-items:center;font-family:"Source Serif 4",Georgia,serif;font-size:1.5rem;font-weight:700;
+        border:2px solid var(--accent);margin-bottom:18px;
+      }
+      .about-card .name{font-family:"Source Serif 4",Georgia,serif;font-size:1.45rem;font-weight:700}
+      .about-card .role{color:var(--accent-strong);font-weight:700;font-size:.92rem;letter-spacing:.06em;text-transform:uppercase;margin-top:3px}
+      .about-card dl{margin:22px 0 0;border-top:1px solid var(--line)}
+      .about-card .row{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.94rem}
+      .about-card dt{color:var(--muted)}
+      .about-card dd{margin:0;font-weight:600;text-align:right}
+      .about-copy p{color:var(--ink-2);margin-bottom:16px;font-size:1.02rem}
+      .about-copy p strong{color:var(--ink)}
+
+      /* ---------- FAQ ---------- */
+      .faq{max-width:820px}
+      .faq details{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);margin-bottom:12px}
+      .faq summary{
+        cursor:pointer;padding:19px 22px;font-weight:700;font-size:1.02rem;list-style:none;
+        display:flex;justify-content:space-between;align-items:center;gap:16px;
+      }
+      .faq summary::-webkit-details-marker{display:none}
+      .faq summary .chev{color:var(--accent-strong);font-size:1.25rem;line-height:1;transition:transform .2s}
+      .faq details[open ] summary .chev{transform:rotate(45deg)}
+      .faq .a{padding:0 22px 20px;color:var(--muted);font-size:.98rem}
+
+      /* ---------- Contact ---------- */
+      .contact-band{background:var(--navy);color:var(--navy-ink)}
+      .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+      @media (max-width:920px){ .contact-grid{grid-template-columns:1fr;gap:36px} }
+      .contact-band h2{color:#fff}
+      .contact-band .label{color:#E7BC7C}
+      .contact-band p.lede{color:#C3D2D8;margin-top:14px;font-size:1.05rem;max-width:30rem}
+      .email-big{
+        display:inline-block;margin-top:28px;font-family:"Source Serif 4",Georgia,serif;
+        font-size:clamp(1.25rem,3.4vw,1.7rem);font-weight:700;color:#fff;text-decoration:none;
+        border-bottom:2px solid var(--accent);padding-bottom:4px;word-break:break-all;
+      }
+      .email-big:hover{color:#E7BC7C}
+      .contact-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+      .btn-light{background:#fff;color:var(--navy) !important;border-color:#fff}
+      .btn-light:hover{background:#EDE6D6}
+      .btn-outline-light{background:transparent;color:#fff !important;border:1px solid rgba(255,255,255,.5)}
+      .btn-outline-light:hover{border-color:#E7BC7C;color:#E7BC7C !important}
+      .copy-msg{font-size:.88rem;color:#E7BC7C;min-height:1.3em;margin-top:10px}
+      .builder{
+        background:var(--surface);color:var(--ink);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow);
+      }
+      .builder h3{font-size:1.22rem;margin-bottom:6px}
+      .builder .sub{color:var(--muted);font-size:.93rem;margin-bottom:20px}
+      .field{margin-bottom:16px}
+      .field label{display:block;font-weight:700;font-size:.88rem;margin-bottom:6px}
+      .field select,.field input,.field textarea{
+        width:100%;padding:12px 13px;border:1px solid var(--line-dark);border-radius:var(--radius-sm);
+        background:var(--bg);color:var(--ink);font:inherit;font-size:.97rem;
+      }
+      .field textarea{min-height:96px;resize:vertical}
+      .builder .btn{width:100%;justify-content:center;padding:14px 20px;margin-top:4px}
+      .builder .fine{font-size:.84rem;color:var(--muted);margin-top:12px;text-align:center}
+
+      /* ---------- Footer ---------- */
+      footer{padding:38px 0 46px;border-top:1px solid var(--line)}
+      .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:flex-start}
+      .foot .fbrand{font-family:"Source Serif 4",Georgia,serif;font-weight:700}
+      .foot p,.foot a{font-size:.9rem;color:var(--muted)}
+      .foot a{color:var(--accent-strong);font-weight:600;text-decoration:none}
+      .disclaimer{margin-top:22px;font-size:.83rem;color:var(--muted);max-width:62rem;line-height:1.6}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap nav">
+        <a class="brand" href="#top" aria-label="Pacific Sheep LLC — home">
+          <span class="brand-mark">P</span>
+          <span>
+            <span class="brand-name">Pacific Sheep LLC</span><br />
+            <span class="brand-sub">Accounting &amp; Bookkeeping</span>
+          </span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#industries">Who We Serve</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a class="btn" href="mailto:pacificsheepinfo@gmail.com">Email Us</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <span class="label">Bookkeeping &amp; accounting consulting</span>
+            <h1>Clean books. <em>Clear decisions.</em></h1>
+            <p class="hero-lede">
+              Pacific Sheep LLC handles day-to-day bookkeeping, month-end close, and financial
+              reporting for small businesses of all kinds — so you always know where your
+              money went, what you earned, and what needs attention next.
+            </p>
+            <div class="hero-ctas">
+              <a class="btn btn-accent" href="mailto:pacificsheepinfo@gmail.com?subject=Bookkeeping%20inquiry%20—%20Pacific%20Sheep%20LLC">Start with an email</a>
+              <a class="btn btn-ghost" href="#services">See services</a>
+            </div>
+            <p class="hero-note">
+              Bookkeeping from <strong>$300/month</strong> · Consulting <strong>$75/hour</strong> · Flat-fee project options available ·
+              Email is the fastest way to reach us: <strong>pacificsheepinfo@gmail.com</strong>
+            </p>
+          </div>
+
+          <div class="ledger" aria-label="Illustration of a monthly close checklist">
+            <div class="ledger-top">
+              <span class="t">Month-End Close</span>
+              <span class="s">Every month, on time</span>
+            </div>
+            <div class="ledger-body">
+              <div class="ledger-row">
+                <span class="k">Bank &amp; card accounts<small>Reconciled to the statement</small></span>
+                <span class="pill">Done</span>
+              </div>
+              <div class="ledger-row">
+                <span class="k">Expenses &amp; payroll<small>Categorized and documented</small></span>
+                <span class="pill">Done</span>
+              </div>
+              <div class="ledger-row">
+                <span class="k">Adjusting entries<small>Accruals, prepaids, depreciation</small></span>
+                <span class="pill">Done</span>
+              </div>
+              <div class="ledger-row">
+                <span class="k">Owner&rsquo;s report<small>P&amp;L, balance sheet, cash flow</small></span>
+                <span class="pill pill-amber">Delivered</span>
+              </div>
+            </div>
+            <p class="ledger-foot">
+              A closed month is a decision-ready month. <strong>No guesswork, no year-end scramble.</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRUST STRIP -->
+      <div class="strip">
+        <div class="wrap strip-inner">
+          <div class="strip-item">
+            <div class="v">All kinds of businesses</div>
+            <div class="d">Service, retail, logistics, and more — books adapted to how you operate</div>
+          </div>
+          <div class="strip-item">
+            <div class="v">QuickBooks-based</div>
+            <div class="d">Setup, cleanup, and ongoing books in QuickBooks</div>
+          </div>
+          <div class="strip-item">
+            <div class="v">CPA candidate–led</div>
+            <div class="d">3 of 4 CPA exam sections passed</div>
+          </div>
+          <div class="strip-item">
+            <div class="v">Remote &amp; responsive</div>
+            <div class="d">Illinois-based, working with clients by email</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICES -->
+      <section class="section" id="services">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="label">Services</span>
+            <h2>Everything your books need, month after month</h2>
+            <p>
+              Take one service or hand over the whole accounting routine. Every engagement is
+              scoped in writing before work begins — no surprise invoices.
+            </p>
+          </div>
+
+          <div class="svc-list">
+            <article class="svc">
+              <div class="svc-num">01</div>
+              <div>
+                <h3>Bookkeeping</h3>
+                <p class="desc">The daily discipline that keeps your records audit-ready and your questions easy to answer.</p>
+              </div>
+              <ul>
+                <li>Recording and categorizing every transaction</li>
+                <li>Receipt and document organization</li>
+                <li>Accounts payable and receivable tracking</li>
+                <li>Revenue tracking by stream — services, sales, contracts, and more</li>
+              </ul>
+            </article>
+
+            <article class="svc">
+              <div class="svc-num">02</div>
+              <div>
+                <h3>Month-End Close</h3>
+                <p class="desc">A consistent close process that turns a pile of transactions into numbers you can trust.</p>
+              </div>
+              <ul>
+                <li>Bank and credit card reconciliations</li>
+                <li>Adjusting and accrual entries</li>
+                <li>Loan, lease, and fixed-asset schedules kept current</li>
+                <li>A repeatable close checklist, finished on schedule</li>
+              </ul>
+            </article>
+
+            <article class="svc">
+              <div class="svc-num">03</div>
+              <div>
+                <h3>Financial Reporting</h3>
+                <p class="desc">Statements prepared the way lenders, partners, and owners actually read them.</p>
+              </div>
+              <ul>
+                <li>Profit &amp; loss statement and balance sheet</li>
+                <li>Cash flow view so surprises show up early</li>
+                <li>Management reports with plain-English takeaways</li>
+                <li>Year-end packages organized for your tax preparer</li>
+              </ul>
+            </article>
+
+            <article class="svc">
+              <div class="svc-num">04</div>
+              <div>
+                <h3>QuickBooks Setup &amp; Cleanup</h3>
+                <p class="desc">Behind on your books, or starting fresh? We rebuild them into a system that stays clean.</p>
+              </div>
+              <ul>
+                <li>Chart of accounts design that matches how you operate</li>
+                <li>Cleanup of miscategorized and duplicate accounts</li>
+                <li>Catch-up bookkeeping for back months</li>
+                <li>Workflows your team can actually follow</li>
+              </ul>
+            </article>
+
+            <article class="svc">
+              <div class="svc-num">05</div>
+              <div>
+                <h3>Consulting &amp; Advisory</h3>
+                <p class="desc">Bring a specific question — pricing, costs, cash flow, a messy process — and get a clear, numbers-based answer.</p>
+                <span class="rate">$75 / hour · flat-fee projects available</span>
+              </div>
+              <ul>
+                <li>Cost and margin analysis by revenue line</li>
+                <li>Cash flow planning and budgeting support</li>
+                <li>Accounting process reviews and fixes</li>
+                <li>One-on-one guidance for owners and office staff</li>
+              </ul>
+            </article>
+
+            <article class="svc">
+              <div class="svc-num">06</div>
+              <div>
+                <h3>Exit-Ready Financials</h3>
+                <p class="desc">Thinking of selling your business — including a sale to private equity? We prepare your financials so they hold up when buyers and their advisors start asking questions.</p>
+                <span class="rate">Flat fee by project · quoted in writing</span>
+              </div>
+              <ul>
+                <li>Cleanup and organization of your books ahead of a sale</li>
+                <li>Financial statements prepared to withstand buyer due diligence</li>
+                <li>Support schedules and documentation for valuation</li>
+                <li>Financial preparation only — we do not negotiate deals, find buyers, or handle closings</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- INDUSTRIES -->
+      <section class="section dark-band" id="industries">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="label">Who we serve</span>
+            <h2>Built for small businesses of every kind</h2>
+            <p>
+              Whatever you sell or do, your books have their own moving parts — inventory,
+              contracts, payroll, equipment, seasonal swings. We structure your accounting
+              around how your business actually runs, not a one-size-fits-all template.
+            </p>
+          </div>
+
+          <div class="ind-grid">
+            <article class="ind">
+              <h3>Service Businesses</h3>
+              <p>
+                From professional services to repair, maintenance, and field work — we track
+                revenue by job or client and keep labor, materials, and overhead separated
+                cleanly, so you can see which work is carrying the rest.
+              </p>
+              <div class="ind-tags">
+                <span>Professional services</span><span>Repair &amp; maintenance</span>
+                <span>Contractors</span><span>Consulting &amp; agencies</span>
+              </div>
+            </article>
+
+            <article class="ind">
+              <h3>Retail, Food &amp; Operations</h3>
+              <p>
+                Shops, restaurants, and multi-line operations juggle sales, inventory,
+                leases, and staff costs every day. We keep each revenue line and cost
+                category in its place, so margins stop being guesswork.
+              </p>
+              <div class="ind-tags">
+                <span>Retail stores</span><span>Restaurants &amp; food service</span>
+                <span>Logistics &amp; distribution</span><span>Multi-line operations</span>
+              </div>
+            </article>
+          </div>
+
+          <p class="ind-scale">
+            &ldquo;Serving small businesses across a wide range of industries, with annual
+            revenues in the millions.&rdquo;
+          </p>
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section class="section" id="process">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="label">How it works</span>
+            <h2>Getting started takes one email</h2>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <div class="n">1</div>
+              <h3>Write to us</h3>
+              <p>
+                Send a short email describing your business and what&rsquo;s not working —
+                behind on books, messy QuickBooks, no monthly reports. That&rsquo;s enough to start.
+              </p>
+            </div>
+            <div class="step">
+              <div class="n">2</div>
+              <h3>Get a scoped proposal</h3>
+              <p>
+                We review your situation and reply with a clear scope and price — which
+                monthly bookkeeping tier fits, or $75/hour / a flat fee for consulting and
+                one-time projects — before anything begins.
+              </p>
+            </div>
+            <div class="step">
+              <div class="n">3</div>
+              <h3>Settle into a rhythm</h3>
+              <p>
+                Books updated through the month, closed on schedule, and a report you can
+                read in minutes. Questions between closes are always welcome by email.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section class="section" id="pricing" style="padding-top:0">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="label">Pricing</span>
+            <h2>Monthly bookkeeping, priced by the work — not by guesswork</h2>
+            <p>
+              Ongoing bookkeeping is a fixed monthly fee, based on transaction volume and
+              complexity. Consulting and one-time projects are billed separately, below.
+              Your exact fee is confirmed in writing after a short review of your books.
+            </p>
+          </div>
+
+          <div class="price-tiers">
+            <article class="price">
+              <span class="kind">Light</span>
+              <div class="amount-range">$300–$500<small> / month</small></div>
+              <p>For a simple business with low volume and a single set of accounts to keep current.</p>
+              <ul>
+                <li>Up to 100 transactions per month</li>
+                <li>1 bank account + 1 credit card</li>
+                <li>No payroll and no inventory</li>
+                <li>Recording, categorizing &amp; reconciliation</li>
+                <li>Monthly bookkeeping kept current</li>
+              </ul>
+            </article>
+
+            <article class="price featured">
+              <span class="kind">Standard</span>
+              <div class="amount-range">$600–$1,000<small> / month</small></div>
+              <p>For established businesses that need a full monthly close and statements they can act on.</p>
+              <ul>
+                <li>Up to 300 transactions per month</li>
+                <li>Multiple accounts</li>
+                <li>Bank, credit card &amp; loan reconciliations</li>
+                <li>Monthly profit &amp; loss and balance sheet</li>
+                <li>Month-end close on a consistent schedule</li>
+              </ul>
+            </article>
+
+            <article class="price">
+              <span class="kind">Complex</span>
+              <div class="amount-range">$1,200–$2,500<small> / month</small></div>
+              <p>For higher volume, or books with extra moving parts that need closer attention each month.</p>
+              <ul>
+                <li>High transaction volume</li>
+                <li>Multiple business lines or multiple locations</li>
+                <li>Or: 1099s, payroll coordination, inventory, or vehicles &amp; equipment</li>
+                <li>Full reconciliations &amp; monthly reporting</li>
+                <li>Scope confirmed after a review of your books</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="price-grid">
+            <article class="price">
+              <span class="kind">Consulting &amp; Advisory</span>
+              <div class="amount">$75<small> / hour</small></div>
+              <p>For focused questions and one-off analysis. You only pay for the time your question actually takes.</p>
+              <ul>
+                <li>Cost, margin, and cash flow analysis</li>
+                <li>Bookkeeping and QuickBooks guidance</li>
+                <li>Process reviews with concrete next steps</li>
+                <li>Billed by the hour, summarized in plain language</li>
+              </ul>
+            </article>
+
+            <article class="price">
+              <span class="kind">One-Time Projects</span>
+              <div class="amount-text">Flat fee or $75 / hour</div>
+              <p>For defined projects — quoted as a flat fee for the project, or billed at $75/hour, whichever fits the work. Agreed in writing before work begins.</p>
+              <ul>
+                <li>QuickBooks setup and defined projects</li>
+                <li>Exit-Ready Financials engagements, quoted as a flat fee by project</li>
+                <li>Scope and fee confirmed in writing first</li>
+                <li><strong>Cleanup of past books is priced separately</strong></li>
+                <li>Cleanup &amp; catch-up work is not included in the monthly bookkeeping fee</li>
+              </ul>
+            </article>
+          </div>
+
+          <p class="price-note">
+            <strong>How your monthly fee is set:</strong> by transactions, number of accounts,
+            and whether you have payroll, inventory, multiple lines, or multiple locations.
+            Not sure which tier fits? Email us the situation — we&rsquo;ll review your books
+            and tell you honestly which option costs you less.
+          </p>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="section" id="about" style="background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+        <div class="wrap about-grid">
+          <div class="about-card">
+            <div class="mono">DL</div>
+            <div class="name">Diffie Liu</div>
+            <div class="role">Founder · CPA Candidate</div>
+            <dl>
+              <div class="row"><dt>Education</dt><dd>Master of Accountancy</dd></div>
+              <div class="row"><dt>University</dt><dd>Wake Forest University</dd></div>
+              <div class="row"><dt>CPA exam progress</dt><dd>3 of 4 sections passed</dd></div>
+              <div class="row"><dt>Focus</dt><dd>Small businesses, all industries</dd></div>
+              <div class="row"><dt>Tools</dt><dd>QuickBooks</dd></div>
+              <div class="row"><dt>Based in</dt><dd>Illinois · remote-first</dd></div>
+            </dl>
+          </div>
+
+          <div class="about-copy">
+            <span class="label">About the firm</span>
+            <h2 style="margin-bottom:20px">An accountant who knows small-business books from the inside</h2>
+            <p>
+              Pacific Sheep LLC was founded by <strong>Diffie Liu</strong>, a financial analyst
+              who holds a <strong>Master of Accountancy from Wake Forest University</strong> and is a
+              <strong>CPA candidate who has passed three of the four CPA exam sections</strong>.
+              Her work centers on small businesses across many industries — the
+              chart-of-accounts redesigns, per-unit cost tracking, and month-end discipline
+              that growing companies&rsquo; books demand.
+            </p>
+            <p>
+              That means your books aren&rsquo;t handled by someone guessing at how your
+              business works. Sales, service revenue, payroll, leases, inventory — they each
+              land in the right place, and your monthly report explains what changed and why
+              it matters.
+            </p>
+            <p>
+              The firm is deliberately small. You work directly with the person doing your
+              books, every month.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section" id="faq">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="label">FAQ</span>
+            <h2>Common questions</h2>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>What kinds of businesses do you work with?<span class="chev" aria-hidden="true">+</span></summary>
+              <p class="a">Small businesses of all kinds — service companies, retailers, restaurants, contractors, logistics operations, and more. If your books have moving parts that a generic bookkeeper might miss, that&rsquo;s exactly the work we do. Email us and we&rsquo;ll tell you honestly whether we&rsquo;re the right fit.</p>
+            </details>
+            <details>
+              <summary>Monthly fee, hourly, or flat fee — which should I choose?<span class="chev" aria-hidden="true">+</span></summary>
+              <p class="a">Ongoing bookkeeping is a monthly fee: Light $300–$500/month (up to 100 transactions, 1 bank account + 1 card, no payroll or inventory), Standard $600–$1,000/month (up to 300 transactions, multiple accounts, bank / credit card / loan reconciliations, monthly P&amp;L and balance sheet), or Complex $1,200–$2,500/month (high volume, multiple business lines or locations, or 1099s, payroll coordination, inventory, or vehicles &amp; equipment). Consulting is $75 per hour. One-time projects are a flat fee or $75/hour. We&rsquo;ll recommend whichever fits your situation after a short review of your books.</p>
+            </details>
+            <details>
+              <summary>My books are months behind. Can you catch them up?<span class="chev" aria-hidden="true">+</span></summary>
+              <p class="a">Yes — catch-up and cleanup work is a common starting point. Cleanup of past books is priced separately and is not included in the monthly bookkeeping fee. We&rsquo;ll review what exists, give you a separate quote for bringing everything current, and then move you onto a normal monthly rhythm.</p>
+            </details>
+            <details>
+              <summary>I&rsquo;m thinking of selling my business. What does Exit-Ready Financials cover?<span class="chev" aria-hidden="true">+</span></summary>
+              <p class="a">It&rsquo;s the financial preparation before a sale — for owners considering any buyer, including private equity. We clean up and organize your books, prepare financial statements that can withstand buyer due diligence, and assemble the support schedules used in valuation. The engagement is priced as a flat fee by project, quoted in writing before work begins. We handle the accounting side only: we do not negotiate transactions, search for buyers, or manage closings.</p>
+            </details>
+            <details>
+              <summary>Are you a CPA firm?<span class="chev" aria-hidden="true">+</span></summary>
+              <p class="a">Pacific Sheep LLC provides bookkeeping, reporting, and accounting consulting. Founder Diffie Liu is a CPA candidate who has passed three of the four CPA exam sections; the firm does not hold itself out as a licensed CPA firm and does not perform audits or attest work. For tax filing, we prepare clean, organized year-end packages that make your tax preparer&rsquo;s job faster and cheaper.</p>
+            </details>
+            <details>
+              <summary>How do we communicate?<span class="chev" aria-hidden="true">+</span></summary>
+              <p class="a">By email at pacificsheepinfo@gmail.com. It keeps a written record of every request and answer — which, for accounting, is exactly what you want.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section contact-band" id="contact">
+        <div class="wrap contact-grid">
+          <div>
+            <span class="label">Contact</span>
+            <h2>Tell us what your books look like right now</h2>
+            <p class="lede">
+              Behind, messy, or just nonexistent — we&rsquo;ve seen it, and the first step is
+              simply describing it. Write to us and you&rsquo;ll get a reply with clear next
+              steps and a scoped price.
+            </p>
+            <a class="email-big" href="mailto:pacificsheepinfo@gmail.com">pacificsheepinfo@gmail.com</a>
+            <div class="contact-actions">
+              <a class="btn btn-light" href="mailto:pacificsheepinfo@gmail.com?subject=Bookkeeping%20inquiry%20—%20Pacific%20Sheep%20LLC">Write an email</a>
+              <button class="btn btn-outline-light" type="button" id="copyEmailBtn">Copy email address</button>
+            </div>
+            <p class="copy-msg" id="copyMsg" role="status" aria-live="polite"></p>
+          </div>
+
+          <form class="builder" id="inquiryForm">
+            <h3>Draft your inquiry</h3>
+            <p class="sub">Fill this in and we&rsquo;ll turn it into a ready-to-send email — nothing is sent until you press send in your own mail app.</p>
+            <div class="field">
+              <label for="fService">What do you need?</label>
+              <select id="fService">
+                <option>Monthly bookkeeping</option>
+                <option>Month-end close</option>
+                <option>Financial reporting</option>
+                <option>QuickBooks setup or cleanup</option>
+                <option>Catch-up bookkeeping</option>
+                <option>Consulting ($75/hour)</option>
+                <option>Exit-ready financials (selling my business)</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="fBiz">Your business</label>
+              <input id="fBiz" type="text" placeholder="e.g. Retail store, two locations" autocomplete="off" />
+            </div>
+            <div class="field">
+              <label for="fMsg">Anything we should know?</label>
+              <textarea id="fMsg" placeholder="e.g. Books are four months behind; QuickBooks Online; need monthly reports for our lender."></textarea>
+            </div>
+            <button class="btn btn-accent" type="submit">Open this in my email app</button>
+            <p class="fine">Opens your email with the message addressed to pacificsheepinfo@gmail.com.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="foot">
+          <div>
+            <div class="fbrand">Pacific Sheep LLC</div>
+            <p>Bookkeeping &amp; accounting consulting for small businesses.</p>
+          </div>
+          <div>
+            <p>Contact<br /><a href="mailto:pacificsheepinfo@gmail.com">pacificsheepinfo@gmail.com</a></p>
+          </div>
+          <div>
+            <p>Bookkeeping $300–$2,500/month<br />Consulting $75/hour · Flat-fee projects available</p>
+          </div>
+        </div>
+        <p class="disclaimer">
+          Pacific Sheep LLC provides bookkeeping and accounting consulting services. Founder
+          Diffie Liu is a CPA candidate (three of four CPA exam sections passed) and is not a
+          licensed CPA; the firm does not provide audit, review, or other attest services.
+          Client names and financial details are never published. &copy; 2026 Pacific Sheep LLC.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var EMAIL = "pacificsheepinfo@gmail.com";
+
+        // Copy email button
+        var copyBtn = document.getElementById("copyEmailBtn");
+        var copyMsg = document.getElementById("copyMsg");
+        copyBtn.addEventListener("click", function () {
+          function done(ok) {
+            copyMsg.textContent = ok
+              ? "Copied — paste it into your mail app anytime."
+              : "Copy didn't work here — the address is pacificsheepinfo@gmail.com.";
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(EMAIL).then(function () { done(true); }, function () { done(false); });
+          } else {
+            var ta = document.createElement("textarea");
+            ta.value = EMAIL;
+            ta.style.position = "fixed"; ta.style.opacity = "0";
+            document.body.appendChild(ta);
+            ta.select();
+            try { done(document.execCommand("copy")); } catch (e) { done(false); }
+            document.body.removeChild(ta);
+          }
+        });
+
+        // Inquiry builder -> mailto
+        var form = document.getElementById("inquiryForm");
+        form.addEventListener("submit", function (ev) {
+          ev.preventDefault();
+          var service = document.getElementById("fService").value;
+          var biz = document.getElementById("fBiz").value.trim();
+          var msg = document.getElementById("fMsg").value.trim();
+
+          var subject = "Inquiry: " + service + " — Pacific Sheep LLC";
+          var lines = [];
+          lines.push("Hi Diffie,");
+          lines.push("");
+          lines.push("I'm interested in: " + service);
+          if (biz) lines.push("My business: " + biz);
+          if (msg) { lines.push(""); lines.push(msg); }
+          lines.push("");
+          lines.push("Thanks!");
+
+          var href = "mailto:" + EMAIL +
+            "?subject=" + encodeURIComponent(subject) +
+            "&body=" + encodeURIComponent(lines.join("\n"));
+          var link = document.createElement("a");
+          link.href = href;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
+      })();
+    </script>
+  </body>
+</html>
